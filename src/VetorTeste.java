@@ -12,15 +12,23 @@ public class VetorTeste {
         System.out.println(lista.tamanho());
         lista.adiciona(a2);
         System.out.println(lista.tamanho());
+
         //imprime lista
         System.out.println(lista);
+
         //Teste método contem
         System.out.println(lista.contem(a1));
         System.out.println(lista.contem(a3)); //Testar aluna não adicionada
-        //Teste posição
-        Aluno x = lista.pega(200);
-        System.out.println(x);
 
+        //Teste posição
+        Aluno x = lista.pega(1);
+        System.out.println(x);
+        lista.adiciona(1, a3);
+        System.out.println(lista);
+
+        //Testando o remove (Irá remover Maria, que foi adicionada na posição 1 no código acima)
+        lista.remove(1);
+        System.out.println(lista);
 
     }
 }

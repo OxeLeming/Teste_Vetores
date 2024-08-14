@@ -9,6 +9,21 @@ public class Vetor {
         totalDeAlunos++;
     }
 
+    private boolean posicaoValida(int posicao) {
+        return posicao >= 0 && posicao <= totalDeAlunos;
+    }
+
+    public void adiciona(int posicao, Aluno aluno) {
+        if (!posicaoValida(posicao)) {
+            throw new IllegalArgumentException("Posicao invalida");
+        }
+        for (int i = totalDeAlunos - 1; i >= posicao; i-=1) {
+            alunos[i+1] = alunos[i];
+        }
+        alunos[posicao] = aluno;
+        totalDeAlunos++;
+    }
+
     private boolean posicaoOcupada(int posicao) {
         return posicao >= 0 && posicao < totalDeAlunos;
     }
@@ -24,6 +39,10 @@ public class Vetor {
 
     public void remove(int posicao) {
         //remove pela posição
+        for (int i = posicao; i < this.totalDeAlunos; i++) {
+            this.alunos[i] = this.alunos[i+1];
+        }
+        totalDeAlunos--;
     }
 
     public boolean contem(Aluno aluno) {
